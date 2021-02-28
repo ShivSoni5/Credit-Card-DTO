@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~ngx-toastr/toastr';
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  background-color: #e7e7e7;
+}
+
+input:focus {
+  outline: 0px !important;
+}
+
+.error-input {
+  outline: none !important;
+  border: 1.5px solid #de350b !important;
+}
+
+.error-hint {
+  font-size: 10px;
+  color: #de350b;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+button:focus {
+  outline: none;
+}

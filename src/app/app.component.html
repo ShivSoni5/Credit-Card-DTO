@@ -1,0 +1,35 @@
+<router-outlet></router-outlet>
+
+<ng-container *ngIf="showButton">
+  <div class="card-info-wrapper">
+    <div class="card-info" *ngIf="card.cardNumber">
+      <div class="card-field">
+        Card Number: {{card.cardNumber}}
+      </div>
+      <div class="card-field">
+        Name: {{card.cardHolderName}}
+      </div>
+      <div class="card-field">
+        Expiry: {{card.expiry | date : 'yyyy-MM'}}
+      </div>
+      <div class="card-field">
+        CVV: {{card.cvv}}
+      </div>
+      <div class="card-field">
+        Amount: {{card.amount}}
+      </div>
+    </div>
+    <div class="card-info" *ngIf="!card.cardNumber">
+      <span class="card-info-msg">
+        Your card info will be shown here after you save it.
+      </span>
+    </div>
+
+    <button class="enter-btn" (click)="ProvideCardDetails()">
+      <a>
+        {{card.cardNumber ? 'Update Card Details' : 'Enter Card Details'}}
+      </a>
+    </button>
+  </div>
+
+</ng-container>

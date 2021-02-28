@@ -1,0 +1,49 @@
+<form class="credit-card" [formGroup]="userCardDetails" (ngSubmit)="onSubmit()">
+  <div class="form-header">
+    <h4 class="title">Credit card detail</h4>
+  </div>
+
+  <div class="form-body">
+
+    <div class="card-field">
+      <input type="text" [class.error-input]="hasError('cardNumber')" formControlName="cardNumber" maxlength="16"
+        placeholder="Card Number">
+      <span *ngIf="hasError('cardNumber')" class="error-hint">Card Number
+        is
+        required</span>
+    </div>
+
+    <div class="card-field">
+      <input type="text" [class.error-input]="hasError('cardHolder')" formControlName="cardHolder"
+        placeholder="Cardholder Name">
+      <span *ngIf="hasError('cardHolder')" class="error-hint">Name
+        is
+        required</span>
+    </div>
+
+    <div class="card-field">
+      <input type="month" [class.error-input]="hasError('expiry')" formControlName="expiry"
+        [min]="minDate | date : 'yyyy-MM'" placeholder="YYYY-MM">
+      <span *ngIf="hasError('expiry')" class="error-hint">Expiry is
+        required</span>
+    </div>
+
+    <div class="card-verification">
+      <div class="cvv-input">
+        <input type="text" maxlength="3" formControlName="cvv" placeholder="CVV">
+      </div>
+      <div class="cvv-details">
+        <p>3 digits usually found <br> on the signature strip</p>
+      </div>
+    </div>
+
+    <div class="card-field">
+      <input type="number" [class.error-input]="hasError('amount')" formControlName="amount" placeholder="Amount">
+      <span *ngIf="hasError('amount')" class="error-hint">Amount is
+        required</span>
+    </div>
+
+    <button type="submit" class="proceed-btn" [class.disabled]="!userCardDetails.valid || loading"><a>Save
+        Details</a></button>
+  </div>
+</form>
